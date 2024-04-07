@@ -1,0 +1,18 @@
+#define ll long long
+class Solution {
+public:
+    long long minOperationsToMakeMedianK(vector<int>& nums, int k) {
+        ll n=nums.size();
+        ll ans=0;
+        sort(nums.begin(),nums.end());
+        for(ll i=0;i<n;i++){
+            if(nums[i]>k && i<=n/2){
+                ans+=abs(nums[i]-k);
+            }
+            if(nums[i]<k && i>=n/2){
+                ans+=abs(nums[i]-k);
+            }
+        }
+        return ans;
+    }
+};
